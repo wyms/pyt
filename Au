@@ -1,0 +1,54 @@
+selfHealing.js
+demos › selfHealing › 15 temps › ...
+IS ModelSwitchys
+1
+2
+Import axios fron 'axios';
+3
+Import • as of fron @tensorflow/tfjs-node;
+4
+15 generations.5
+6
+7
+const getGoldPrices - async () → {
+const response • await axios.get('https://api.netals.11ve/v1/spot/gold*);
+const prices - response.data;
+}:
+return prices.map((item) -> ({ date: item.tinestamp, price: parseFloat(iten.price) )));
+10
+const trainModel • async (data) → ( const model - tf. sequential():
+13
+1세
+model.add(tf.layers.dense(( units: 1, inputShape: [1] ))):
+15
+model.compile(f loss: meanSquaredError', optinizer: sgd* )):
+16
+const xs - tf. tensor2d(data. map((item, index) -> [index])):
+17
+const ys - tf. tensor2d(data.map((item) > [iten.price])):
+18
+await model. fit(as, ys, (epochs: 250 )):
+return model:
+21
+24
+25
+26
+27
+28
+const predictGoldPrice - async () →> ( const goldPrices - avalt getGoldPrices(): const model - await trainModel(goldPrices):
+PRONLEMS
+const input - tf. tensor2d(|[goldprices length]l):
+const result - model.predict (Anput):
+OUTPUT
+DEBUG CONSOLE
+TERMINAL
+CiMusers Stlo Documents\DevelopeentProjects 30g g JaMvo-3-7Mderosselfrealineynode temp.js
+2923-04-03 08:25:18.758142: 1 tensorflou/cone/platform/cpu_feature_ guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Libry operations:
+ANX2
+To enable them in other operations, rebuild Tensorflon with the appropriate compiler flags.
+Epoch 1 7 258 eta-0.0 -m
+38624ns 138us/step - Loss Nam
+Epoch 2 / 258
+eta-9.5
+-- Loss-NaN [
+0:03 / 0:09
