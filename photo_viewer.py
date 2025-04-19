@@ -3,7 +3,7 @@ import random
 from flask import Flask, send_from_directory, jsonify, render_template_string
 
 # Path to your image folder
-PHOTO_DIR = r"C:\stephanieandreeseshower"
+PHOTO_DIR = r"C:\yourfolder"
 
 app = Flask(__name__)
 
